@@ -1,0 +1,191 @@
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+
+  transition: all 0.5s ease-in-out;
+
+  text-align: center;
+}
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+.square {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+
+  transition: all 0.5s ease-in-out;
+}
+.square_list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: none;
+  padding: 24px;
+
+  text-align: left;
+
+  transition: all 0.5s linear 1s;
+
+  background: rgba(50,50,50,0.1);
+}
+.square_list ul {
+  height: 100%;
+}
+.square:first-child .square_list {
+  left: -100%;
+}
+.square:nth-child(2) .square_list {
+  right: -100%;
+}
+.square:nth-child(3) .square_list {
+  left: -100%;
+}
+.square:first-child .square_list {
+  right: -100%;
+}
+
+.square .btn {
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+
+  border: none;
+  background: none;
+}
+
+.App.first,
+.App.second,
+.App.third,
+.App.fourth {
+  width: 100%;
+  height: 100%;
+}
+
+.App.first .square:first-child {
+  width: 90%;
+  height: 90%;
+}
+.App.first .square:first-child .square_list {
+  display: block;
+  left: 0;
+}
+
+.App.first .square:nth-child(2) {
+  width: 10%;
+  height: 90%;
+}
+.App.first .square:nth-child(3) {
+  width: 50%;
+  height: 10%;
+}
+.App.first .square:last-child {
+  width: 50%;
+  height: 10%;
+}
+
+
+.App.second .square:first-child {
+  width: 10%;
+  height: 90%;
+}
+.App.second .square:nth-child(2) {
+  width: 90%;
+  height: 90%;
+}
+.App.second .square:nth-child(2) .square_list {
+  display: block;
+  right: 0;
+}
+.App.second .square:nth-child(3) {
+  width: 50%;
+  height: 10%;
+}
+.App.second .square:last-child {
+  width: 50%;
+  height: 10%;
+}
+
+
+.App.third .square:first-child {
+  width: 10%;
+  height: 10%;
+}
+.App.third .square:nth-child(2) {
+  width: 10%;
+  height: 10%;
+}
+.App.third .square:nth-child(3) {
+  width: 90%;
+  height: 90%;
+}
+.App.third .square:nth-child(3) .square_list {
+  display: block;
+  left: 0;
+}
+.App.third .square:last-child {
+  width: 10%;
+  height: 90%;
+}
+
+
+.App.fourth .square:first-child {
+  width: 50%;
+  height: 10%;
+}
+.App.fourth .square:nth-child(2) {
+  width: 50%;
+  height: 10%;
+}
+.App.fourth .square:nth-child(3) {
+  width: 10%;
+  height: 90%;
+}
+.App.fourth .square:last-child {
+  width: 90%;
+  height: 90%;
+}
+.App.fourth .square:last-child .square_list {
+  display: block;
+  right: 0;
+}
