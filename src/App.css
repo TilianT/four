@@ -3,10 +3,13 @@
   flex-wrap: wrap;
   width: 500px;
   height: 500px;
+  overflow: hidden;
 
   transition: all 0.5s ease-in-out;
 
   text-align: center;
+
+  border-radius: 5px;
 }
 #root {
   width: 100%;
@@ -66,7 +69,7 @@
 
   transition: all 0.5s linear 1s;
 
-  background: rgba(50,50,50,0.1);
+  /* background: rgba(50,50,50,0.1); */
 }
 .square_list ul {
   height: 100%;
@@ -83,8 +86,29 @@
 .square:first-child .square_list {
   right: -100%;
 }
+.square .btn--add {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
 
-.square .btn {
+  outline: none;
+
+  transition: all 0.2s ease-in-out;
+
+  cursor: pointer;
+
+  border: none;
+  background-color: transparent;
+}
+.square .btn--add:hover {
+  transform: scale(1.05);
+}
+.square .btn--add:active {
+  transform: scale(0.95);
+}
+
+.square .btn--category {
   width: 100%;
   height: 100%;
 
@@ -102,6 +126,8 @@
 .App.fourth {
   width: 100%;
   height: 100%;
+
+  border-radius: 0;
 }
 
 .App.first .square:first-child {
@@ -111,6 +137,9 @@
 .App.first .square:first-child .square_list {
   display: block;
   left: 0;
+}
+.App.first .square:first-child .btn--category {
+  display: none;
 }
 
 .App.first .square:nth-child(2) {
@@ -147,6 +176,9 @@
   width: 50%;
   height: 10%;
 }
+.App.second .square:nth-child(2) .btn--category {
+  display: none;
+}
 
 
 .App.third .square:first-child {
@@ -168,6 +200,9 @@
 .App.third .square:last-child {
   width: 10%;
   height: 90%;
+}
+.App.third .square:nth-child(3) .btn--category {
+  display: none;
 }
 
 
@@ -191,6 +226,9 @@
   display: block;
   right: 0;
 }
+.App.fourth .square:last-child .btn--category {
+  display: none;
+}
 
 
 /* todo_item */
@@ -213,14 +251,12 @@
 
   transition: all 0.2s ease-in-out;
 
-  border: 1px solid #ddd;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 .todo_item__btns {
   overflow: hidden;
   width: 50px;
-  /* padding-left: 50px; */
   height: 100%;
   display: flex;
   
@@ -281,7 +317,7 @@
 
   text-align: left;
 
-  background-color: rgba(200,50,50,.4);
+  background-color: rgba(200,0,0,.8);
 }
 .todo_item .todo_item__top p {
   height: 100%;
@@ -312,7 +348,7 @@
 }
 
 .todo_item.done .todo_item__top {
-  background-color: rgba(50,250,50,.4);
+  background-color: rgba(50,250,100,.8);
 }
 .todo_item.edit .todo_item__bottom {
   width: 100%;
@@ -347,10 +383,6 @@
 }
 .todo_item.edit .todo_item__btns .btn--edit,
 .todo_item.edit .todo_item__btns .btn--delete {
-  display: none;
-}
-
-.todo_item.deleted {
   display: none;
 }
 

@@ -4,11 +4,8 @@ class ToDoItem extends Component {
   constructor(props) {
     super(props);
 
-    this.tmpText = "";
-
     this.state = {itemClass: "", menuClass: "", itemValue: this.props.initText};
 
-    this.handlerInput = this.handlerInput.bind(this);
     this.hadnlerClick = this.hadnlerClick.bind(this);
     this.handlerEdit = this.handlerEdit.bind(this);
     this.handlerClickEdit = this.handlerClickEdit.bind(this);
@@ -16,15 +13,14 @@ class ToDoItem extends Component {
     this.handlerClickReject = this.handlerClickReject.bind(this);
     this.handlerClickSave = this.handlerClickSave.bind(this);
   }
-  handlerInput(e) {
-    this.tmpText = e.target.value;
-  }
   handlerClickSave(e) {
     e.stopPropagation();
 
     this.setState({itemClass: "", menuClass: ""});
 
-    this.setState({itemValue: this.tmpText});
+    this.setState({itemValue: this.textInput.value});
+
+    this.props.handlerUpdate(this.textInput.value, this.props.index);
   }
   handlerClickReject(e) {
     e.stopPropagation();
@@ -34,7 +30,7 @@ class ToDoItem extends Component {
   handlerClickDelete(e) {
     e.stopPropagation();
 
-    this.setState({itemClass: 'deleted'});
+    this.props.hadlerDelete(this.props.index);
   }
   handlerClickEdit(e) {
     e.stopPropagation();
@@ -74,8 +70,8 @@ class ToDoItem extends Component {
           <div className="todo_item__bottom">
             <input 
               type="text" 
-              onChange={this.handlerInput}
               ref={(input) => { this.textInput = input; }} 
+              defaultValue={this.state.itemValue}
               />
           </div>
 
