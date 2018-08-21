@@ -90,6 +90,8 @@
 
   cursor: pointer;
 
+  outline: none;
+
   border: none;
   background: none;
 }
@@ -188,4 +190,177 @@
 .App.fourth .square:last-child .square_list {
   display: block;
   right: 0;
+}
+
+
+/* todo_item */
+
+.todo_item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: calc(100% - 200px);
+  margin-bottom: 20px;
+}
+.todo_item__main {
+  width: calc(100% - 10px);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+
+  border: 1px solid #ddd;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.todo_item__btns {
+  overflow: hidden;
+  width: 50px;
+  /* padding-left: 50px; */
+  height: 100%;
+  display: flex;
+  
+  line-height: 0;
+
+  transition: all 0.2s ease-in-out;
+
+  cursor: pointer;
+
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.todo_item__btns .btn {
+  height: 50px;
+  width: 50px;
+  display: none;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition: all 0.2s linear;
+
+  border: none;
+}
+.todo_item__btns .btn--open {
+  display: block;
+
+  background-color: rgba(150,150,150, 0.5);  
+}
+
+
+.todo_item__btns .btn:hover {
+  filter: brightness(0.7);
+}
+.todo_item__btns .btn--edit,
+.todo_item__btns .btn--save {
+  background-color: rgba(50,250,0, 0.5);
+}
+.todo_item__btns .btn--delete {
+  background-color: rgba(250,50,50, 0.5);
+}
+.todo_item__btns .btn--reject {
+  background-color: rgba(250,0,0, 0.7);
+}
+.todo_item__btns .btn img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+.todo_item .todo_item__top {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+
+  transition: all 0.5s ease-in-out;
+
+  text-align: left;
+
+  background-color: rgba(200,50,50,.4);
+}
+.todo_item .todo_item__top p {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.todo_item .todo_item__bottom {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+
+  transform: translateX(-100%);
+
+  transition: all 0.5s ease-in-out;
+}
+.todo_item .todo_item__bottom input {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+
+  outline: none;
+  
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.todo_item.done .todo_item__top {
+  background-color: rgba(50,250,50,.4);
+}
+.todo_item.edit .todo_item__bottom {
+  width: 100%;
+  position: relative;
+  
+  transform: translateX(0%);
+}
+.todo_item.edit .todo_item__top {
+  position: absolute;
+  transform: translateX(100%);
+}
+.todo_item.menu .btn--open img {
+  transform: scale(-1, 1);
+}
+.todo_item.menu .todo_item__btns,
+.todo_item.edit .todo_item__btns {
+  width: 150px;
+  margin-right: -150px;
+}
+.todo_item.menu .todo_item__btns .btn--save,
+.todo_item.menu .todo_item__btns .btn--reject,
+.todo_item.edit .todo_item__btns .btn--edit {
+  display: none;
+}
+.todo_item.menu .todo_item__btns .btn--edit,
+.todo_item.menu .todo_item__btns .btn--delete {
+  display: block;
+}
+.todo_item.edit .todo_item__btns .btn--save,
+.todo_item.edit .todo_item__btns .btn--reject {
+  display: block;
+}
+.todo_item.edit .todo_item__btns .btn--edit,
+.todo_item.edit .todo_item__btns .btn--delete {
+  display: none;
+}
+
+.todo_item.deleted {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .todo_item {
+    width: 100%;
+  }
+  .todo_item.menu .todo_item__main,
+  .todo_item.edit .todo_item__main {
+    width: calc(100% - 150px);
+  }
 }

@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import ToDoItem from './todoItem';
 
 class Square extends Component {
+
+  constructor(props) {
+    super(props);
+
+  }
   render() {
     return (
       <div className={`square ${this.props.renderClass}`} style={{backgroundColor: this.props.color}} onClick={this.props.clickFunction} id={this.props.id} >
@@ -11,7 +17,11 @@ class Square extends Component {
 
         <div className="square_list">
           <ul>
-            <li>Пункт №1</li>
+            {
+              this.props.todos.map((item, index) => {
+                return <ToDoItem key={index} initText={item} />
+              })
+            } 
           </ul>
           
         </div>
