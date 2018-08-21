@@ -22,7 +22,7 @@ class ToDoItem extends Component {
   handlerClickSave(e) {
     e.stopPropagation();
 
-    this.setState({itemClass: ""});
+    this.setState({itemClass: "", menuClass: ""});
 
     this.setState({itemValue: this.tmpText});
   }
