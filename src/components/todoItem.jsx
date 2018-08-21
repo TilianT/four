@@ -41,6 +41,8 @@ class ToDoItem extends Component {
 
     let newClass = this.state.itemClass === "edit" ? "" : "edit";
 
+    this.textInput.focus();
+
     this.setState({itemClass: newClass});
   }
   handlerEdit(e) {
@@ -70,7 +72,11 @@ class ToDoItem extends Component {
           </div>
 
           <div className="todo_item__bottom">
-            <input type="text" onChange={this.handlerInput}/>
+            <input 
+              type="text" 
+              onChange={this.handlerInput}
+              ref={(input) => { this.textInput = input; }} 
+              />
           </div>
 
         </div>
