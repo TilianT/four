@@ -29,7 +29,7 @@ class ToDoItem extends Component {
   handlerClickReject(e) {
     e.stopPropagation();
 
-    this.setState({itemClass: ""});
+    this.setState({itemClass: "", menuClass: ""});
   }
   handlerClickDelete(e) {
     e.stopPropagation();
