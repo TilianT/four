@@ -64,6 +64,8 @@
   top: 0;
   display: none;
   padding: 24px;
+  overflow-x: hidden;
+  
 
   text-align: left;
 

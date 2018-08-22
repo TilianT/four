@@ -16,14 +16,14 @@ class Square extends Component {
   hadlerDelete(index) {
     let tmpItems = this.state.Items;
     tmpItems.splice(index, 1);
-    
-    this.setState({Items: tmpItems});
 
+    this.setState({Items: tmpItems});
+    
     localStorage.setItem(`items${this.props.id}`, JSON.stringify(this.state.Items));
   }
-  handlerUpdate(item, index) {
+  handlerUpdate(itemText,itemClass, index) {
     let tmpItems = this.state.Items;
-    tmpItems[index] = item;
+    tmpItems[index] = {textItem: itemText, classItem: itemClass};
     
     this.setState({Items: tmpItems});
 
@@ -31,7 +31,7 @@ class Square extends Component {
   }
   addItem() {
     let tmpItems = this.state.Items;
-    tmpItems.push("");
+    tmpItems.push({textItem: "", classItem: ""});
     
     this.setState({Items: tmpItems});
     localStorage.setItem(`items${this.props.id}`, JSON.stringify(this.state.Items));
@@ -51,7 +51,16 @@ class Square extends Component {
           <ul>
             {
               this.state.Items.map((item, index) => {
-                return <ToDoItem key={index} initText={item} hadlerDelete={this.hadlerDelete} handlerUpdate={this.handlerUpdate} index={index} />
+                return (
+                  <ToDoItem
+                   key={Math.random()} 
+                    initText={item.textItem}
+                     initClass={item.classItem}
+                      hadlerDelete={this.hadlerDelete}
+                       handlerUpdate={this.handlerUpdate}
+                        index={index} 
+                  />
+                )
               })
             } 
           </ul>

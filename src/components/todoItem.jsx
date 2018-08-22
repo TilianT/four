@@ -4,7 +4,7 @@ class ToDoItem extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {itemClass: "", menuClass: "", itemValue: this.props.initText};
+    this.state = {itemClass: this.props.initClass === "edit" ? "" : this.props.initClass, menuClass: "", itemValue: this.props.initText};
 
     this.hadnlerClick = this.hadnlerClick.bind(this);
     this.handlerEdit = this.handlerEdit.bind(this);
@@ -20,7 +20,7 @@ class ToDoItem extends Component {
 
     this.setState({itemValue: this.textInput.value});
 
-    this.props.handlerUpdate(this.textInput.value, this.props.index);
+    this.props.handlerUpdate(this.textInput.value, this.state.itemClass, this.props.index);
   }
   handlerClickReject(e) {
     e.stopPropagation();
@@ -56,6 +56,8 @@ class ToDoItem extends Component {
     let newClass = this.state.itemClass === "done" ? "" : "done";
 
     this.setState({itemClass: newClass});
+
+    this.props.handlerUpdate(this.textInput.value, newClass, this.props.index);
   }
   render() {
     return (
