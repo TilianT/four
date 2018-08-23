@@ -73,7 +73,7 @@ class App extends Component {
          {
           this.state.array.map((item) => {
             let tmpItems = localStorage.getItem(`items${item.key}`);
-            return <Square key={item.key} imgSrc={item.icon} todos={tmpItems !== null ? tmpItems : "[]"} color={item.color}  id={item.key} clickFunction={this.deactive} />
+            return <Square key={item.key} imgSrc={item.icon} todos={tmpItems !== null ? tmpItems : '[{"textItem":"","classItem":""}]' } color={item.color}  id={item.key} clickFunction={this.deactive} />
           })
         }
         
